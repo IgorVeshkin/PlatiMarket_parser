@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Отчет-выгрузка с площадки Plati Market : Продавец {sellers_name}</title>
+
+<style>
+    thead {
+
+    	background-color: honeydew;
+
+    }
+
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+	h2, h3 {
+		font-family: Helvetica, sans-serif;
+	}
+
+    .loader {
+        border: 4px solid #f3f3f3; /* Light grey */
+        border-top: 4px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Loader CSS START */
+
+    .loader-display-flex {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    .loader-display-none {
+        display: none;
+    }
+
+    .loader-text {
+        margin-top: 7px;
+        margin-left: 5px;
+    }
+
+    /* Loader CSS END*/
+
+    /* Search Area START */
+
+    #searchInput {
+        padding: 5px;
+        outline: none;
+        width: 260px;
+    }
+
+    #search_btn {
+        padding: 5px;
+        margin-left: 5px;
+    }
+
+    #reset_btn {
+        padding: 5px;
+        margin-left: 5px;
+    }
+
+    /* Search Area END */
+
+
+    /* No Found Products START */
+
+    .no-data-display {
+        display: block;
+    }
+
+    .no-data-display-none {
+        display: none;
+    }
+
+    /* No Found Products END */
+
+    /* Указываем минимальный размер таблицы, чтобы она соответствовала размеру текста об отсутствии товаров в поиске */
+    table {
+        min-width: 420px;
+    }
+
+	/* По какой-то причине в новые отчеты добавляется отступ. Данные строчки кода призваны исправить это  */
+    * {
+        margin-top: 4px;
+    }
+
+</style>
+
+</head>
+<body>
+<h2>{report_title}</h2>
+
+<h3>{sellers_name}</h3>
+
+<h3>{all_products_count}</h3>
+
+<h3>{report_products_count}</h3>
+
+<h3>{products_prices_range}</h3>
+
+<h3>{report_date}</h3>
+
+<h3>{report_start_time}</h3>
+
+<h3>{report_end_time}</h3>
+
+<!-- Блок поиска -->
+
+<input type="text" id="searchInput" placeholder="Поиск по названию..."/><button id="search_btn">Выполнить поиск</button><button id="reset_btn">Сбросить поиск</button>
+
+<br><br/>
+
+<!-- Конец Блока поиска -->
+
+
+<!-- Блок спиннера -->
+
+<div id="spinner" class="loader-display-none"><div class="loader"></div><div class="loader-text">Подождите, пожалуйста...</div></div>
+
+<!-- Конец Блока спиннера -->
+
+<table border="1">
+	<thead>
+		<tr style="text-align: center; vertical-align: middle;">
+        	{headers}
+        </tr>
+	</thead>
+
+	<tbody style="text-align: center; vertical-align: middle;">
+		<tr>
+            {content}
+        </tr>
+	</tbody>
+</table>
+
+<!-- Запись, появляющаяся при отсутствии результатов поиска -->
+<h2 id="noDataLabel" class="no-data-display-none">Ни одной записи не было найдено</h2>
+
+<br><br/>
+
+<h3>{CreatedByIgorVeshkin}</h3>
+
+<!-- Скрипт, обрабатывающий и реализующий логику поиска -->
+
+<script type="text/javascript">
+
+    // Ссылка на кнопку поиска
+    var search_btn = document.getElementById('search_btn');
+
+    // Ссылка на таблицу
+    var myTable = document.getElementsByTagName("table")[0];
+
+    // Создаем массив всех данных таблицы из HTMLCollection
+    // Получиться массив HTMLTableRowElement элементов, с которыми можно взаимодействовать с помощью cells
+    var tableData = Array.from(myTable.rows);
+
+    // Убераем заголовок и пустой tr объект из массива
+    // Заменил -1 на tableData.length, поскольку последный элемент пропадал из выборки
+    var tableDataFull =  tableData.slice(2, tableData.length); // tableData.slice(2, tableData.at(-1));
+
+    //var tableDataFull =  tableData.slice(2, -1); // tableData.slice(2, tableData.at(-1));
+
+    // Получаем tbody таблицы
+    var tbody = myTable.children[1];
+
+    // Переменная, хранящая поле ввода названия для поиска
+    var searchInput = document.getElementById('searchInput');
+
+    // Переменная, хранящая данные нужен ли ресет поиска
+    var needReset = false;
+
+    // Ссылка на spinner
+    var spinner = document.getElementById('spinner');
+
+    // Ссылка на текст с информацией об отсутствии записей
+    var noDataLabel = document.getElementById('noDataLabel');
+
+    // https://www.geeksforgeeks.org/how-to-wait-n-seconds-in-javascript/?ysclid=m1w7n57v2h997770764
+
+    // Переменная ожидания
+    function wait(seconds) {
+        return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+    }
+
+    search_btn.addEventListener('click', async () => {
+
+        // alert('Базовая проверка, что нажатие по кнопке проходит!');
+
+        // Получаем данные поиска
+        searchValue = searchInput.value.toLowerCase();
+
+        // Проверка введены ли данные для поиска
+        if(!searchValue) {
+            alert("Внимание: Поиск не может быть выполнен! Введите данные для поиска!");
+            return;
+        }
+
+        // Скрываем текст об отсутствие товаров в отчете
+        noDataLabel.classList.add('no-data-display-none');
+        noDataLabel.classList.remove('no-data-display');
+
+        // Отображаем спинер, чтобы не создавалось ощющение задерки в работе программы
+        spinner.classList.add('loader-display-flex');
+        spinner.classList.remove('loader-display-none');
+
+        // Ожидаем пол-секунды
+        await wait(0.5);
+
+        // Удаляем все данные из таблицы
+        tbody.innerHTML = '';
+
+        needReset = true;
+
+        // Запускаем цикл, перебирая все строки таблицы
+        tableDataFull.map((record) => {
+
+            // Получаем название товара. Переводим текст в нижний регистр
+            var recordName = record.cells[0].innerHTML.toLowerCase();
+
+            // Если строка из поиска встречается в название товара в таблице, то
+            if(recordName.includes(searchValue)) {
+
+                // Товар добавляется в таблицу поиска
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${record.cells[0].innerHTML}</td>
+                        <td>${record.cells[1].innerHTML}</td>
+                        <td>${record.cells[2].innerHTML}</td>
+                    </tr>
+                `;
+            }
+        });
+
+        // Скрываем спинер, поскольку данные прогрузились
+        spinner.classList.add('loader-display-none');
+        spinner.classList.remove('loader-display-flex');
+
+        // Если не найдено ни одного товара, то...
+        if(!tbody.innerHTML) {
+
+            // alert('Нет данных о данном товаре');
+
+            // Отображаем текст об отсутствие товаров в отчете
+            noDataLabel.classList.add('no-data-display');
+            noDataLabel.classList.remove('no-data-display-none');
+
+        }
+
+        // Получение содержимого тега tbody таблицы
+        // alert(myTable.children[1].innerHTML);
+
+        // Удаление тега tbody (Внимание удаляется весь тег полностью)
+        // myTable.children[1].remove();
+
+        // Удаление только содержимого tbody
+        // myTable.children[1].innerHTML = '';
+
+        // Взаимодействие с определенной ячейкой ряда. Получаем его значение
+        // alert(tableData[10].cells[0].innerHTML);
+
+        // Добавление новой записи в tbody таблицу
+        // Будет выполняться в цикле
+        /*
+        tbody.innerHTML += `
+            <tr>
+                <td>${tableData[10].cells[0].innerHTML}</td>
+                <td>${tableData[10].cells[1].innerHTML}</td>
+                <td>${tableData[10].cells[2].innerHTML}</td>
+            </tr>
+        `;
+        */
+
+    });
+
+
+    // Ссылка на кнопку сброса поиска
+    var reset_btn = document.getElementById('reset_btn');
+
+    // Если кнопка сброса нажата
+    reset_btn.addEventListener('click', async () => {
+
+        // И если до этого момента поиск был выполнен, то...
+        if(needReset) {
+
+            // Отображаем спинер, чтобы не создавалось ощющение задерки в работе программы
+            spinner.classList.add('loader-display-flex');
+            spinner.classList.remove('loader-display-none');
+
+            // Ожидаем пол-секунды
+            await wait(0.5);
+
+            // Очищаем таблицу, чтобы результат поиска был удален из таблицы
+            tbody.innerHTML = '';
+
+            // Запускаем цикл, перебирая все сохраненные данные таблицы в отдельной переменной
+            tableDataFull.map((record) => {
+
+                // Добавляем данные в таблицу
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${record.cells[0].innerHTML}</td>
+                        <td>${record.cells[1].innerHTML}</td>
+                        <td>${record.cells[2].innerHTML}</td>
+                    </tr>
+                `;
+
+            });
+
+            needReset = false;
+
+            searchInput.value = '';
+
+            // Скрываем спинер, поскольку данные прогрузились
+            spinner.classList.add('loader-display-none');
+            spinner.classList.remove('loader-display-flex');
+
+            // Скрываем текст об отсутствие товаров в отчете
+            noDataLabel.classList.add('no-data-display-none');
+            noDataLabel.classList.remove('no-data-display');
+
+        } else {
+
+            alert('Внимание: Сброс поиска не может быть произведен, поскольку на данный момент отображаются исходные данные!');
+
+        }
+
+
+    });
+
+
+
+</script>
+
+
+</body>
+</html>

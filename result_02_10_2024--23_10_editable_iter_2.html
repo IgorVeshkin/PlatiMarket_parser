@@ -1,0 +1,1588 @@
+<style>    thead {    background-color: honeydew;    }    table,    th,    td {        border-collapse: collapse;        padding: 10px;    }    a {        text-decoration: none;    }h2, h3 {font-family: Helvetica, sans-serif;}
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Loader CSS START */
+
+.loader-display-flex {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.loader-display-none {
+    display: none;
+}
+
+.loader-text {
+    margin-top: 7px;
+    margin-left: 5px;
+}
+
+/* Loader CSS END*/
+
+/* Search Area START */
+
+#searchInput {
+    padding: 5px;
+    outline: none;
+    width: 260px;
+}
+
+#search_btn {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+#reset_btn {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+/* Search Area END */
+
+
+/* No Found Products START */
+
+.no-data-display {
+    display: block;
+}
+
+.no-data-display-none {
+    display: none;
+}
+
+/* No Found Products END */
+
+/* Указываем минимальный размер таблицы, чтобы она соответствовала размеру текста об отсутствии товаров в поиске */
+table {
+    min-width: 420px;
+}
+
+
+/* Pagination START */
+
+.pagination-page {
+    margin: 2.5px;
+    padding: 7.5px;
+    min-width: 40px;
+    cursor: pointer;
+}
+
+.paginationSelectBox {
+    margin-bottom: 10px;
+}
+
+/* Pagination END */
+
+</style><h2>Отчет-выгрузка с площадки Plati Market</h2><h3>Продавец: <a href="https://plati.market/seller/keybd/1063966/#ss=price" target="_blank" rel="noopener noreferrer">KEYBD</a></h3><h3>Общее количество товаров продавца: 1452</h3><h3>Количество выгруженных в отчет товаров продавца: 170</h3><h3>Диапазон цен: от 299 руб. до 499 руб.</h3><h3>Дата выгрузки: 02.10.2024</h3><h3>Время начала выгрузки: 23:08:43</h3><h3>Время окончания выгрузки: 23:10:53</h3>
+
+<!-- Блок использования пагинации -->
+<div class="paginationSelectBox"><input
+        type="checkbox"
+        name="usePaginationCheckbox"
+        id="usePaginationCheckbox"
+        value="usePagination">
+     <label for="usePaginationCheckbox">Использовать пагинацию</label>
+</div>
+
+<div id="paginationSpinner" class="loader-display-none"><div class="loader"></div><div class="loader-text">Подождите, пожалуйста...</div></div>
+
+<input type="text" id="searchInput" placeholder="Поиск по названию..."/><button id="search_btn">Выполнить поиск</button><button id="reset_btn">Сбросить поиск</button>
+
+<br><br/>
+
+<div id="spinner" class="loader-display-none"><div class="loader"></div><div class="loader-text">Подождите, пожалуйста...</div></div>
+
+<table border="1"><thead><tr style="text-align: center; vertical-align: middle;">
+
+        <th>Название товара</th>
+        <th>Ссылка</th>
+        <th>Цена</th>
+                </tr></thead><tbody style="text-align: center; vertical-align: middle;"><tr>            
+                    <tr>
+                        <td>Dragons dogma 2: 1500 кристаллов Разлома (B)</td>
+                        <td><a href="https://plati.market/itm/dragon-s-dogma-2-1500-rift-crystals-b/4257869" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dragon-s-dogma-2-1500-rift-crystals-b/4257869</a></td>
+                        <td>299 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dragons dogma 2: 1500 кристаллов Разлома (A)</td>
+                        <td><a href="https://plati.market/itm/dragon-s-dogma-2-1500-rift-crystals-a/4257879" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dragon-s-dogma-2-1500-rift-crystals-a/4257879</a></td>
+                        <td>299 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dragons dogma 2: 1500 кристаллов Разлома (C)</td>
+                        <td><a href="https://plati.market/itm/dragon-s-dogma-2-1500-rift-crystals-c/4257870" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dragon-s-dogma-2-1500-rift-crystals-c/4257870</a></td>
+                        <td>299 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dragons dogma 2: 1500 кристаллов Разлома (D)</td>
+                        <td><a href="https://plati.market/itm/dragon-s-dogma-2-1500-rift-crystals-d/4257871" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dragon-s-dogma-2-1500-rift-crystals-d/4257871</a></td>
+                        <td>299 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Deaths Herald · DLC 🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-death-s-herald-dlc-auto-0-cards/3884113" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-death-s-herald-dlc-auto-0-cards/3884113</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Double or Nothing · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-double-or-nothing-dlc-auto-0/3884095" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-double-or-nothing-dlc-auto-0/3884095</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Wallpaper Engine Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/wallpaper-engine-steam-gift-auto-0-cards/3879704" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/wallpaper-engine-steam-gift-auto-0-cards/3879704</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Schwarzmüller Trailer Pack DLC</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-schwarzm-ller-trailer-pack-dlc/3883852" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-schwarzm-ller-trailer-pack-dlc/3883852</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Cabin Accessories · DLC 🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-cabin-accessories-dlc-avto/3883843" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-cabin-accessories-dlc-avto/3883843</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Mighty Griffin Tuning Pack DLC</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-mighty-griffin-tuning-pack-dlc/3883860" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-mighty-griffin-tuning-pack-dlc/3883860</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - XF Tuning Pack · DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-xf-tuning-pack-dlc-avto-0/3883871" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-xf-tuning-pack-dlc-avto-0/3883871</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Krone Trailer Pack · DLC🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-krone-trailer-pack-dlc-avto/3883893" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-krone-trailer-pack-dlc-avto/3883893</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - FH Tuning Pack · DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-fh-tuning-pack-dlc-avto-0/3883911" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-fh-tuning-pack-dlc-avto-0/3883911</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Actros Tuning Pack · DLC🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-actros-tuning-pack-dlc-avto/3883901" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-actros-tuning-pack-dlc-avto/3883901</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Renault Trucks T Tuning Pack🚀</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-renault-trucks-t-tuning-pack/3883917" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-renault-trucks-t-tuning-pack/3883917</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - The Lawless DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-the-lawless-dlc-steam-auto-0-cards/3884114" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-the-lawless-dlc-steam-auto-0-cards/3884114</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - The Kid · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-the-kid-dlc-steam-auto-0-cards/3884111" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-the-kid-dlc-steam-auto-0-cards/3884111</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Krone Trailer Pack · DLC🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-krone-trailer-pack-dlc-avto/3883893" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-krone-trailer-pack-dlc-avto/3883893</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - FH Tuning Pack · DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-fh-tuning-pack-dlc-avto-0/3883911" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-fh-tuning-pack-dlc-avto-0/3883911</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Actros Tuning Pack · DLC🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-actros-tuning-pack-dlc-avto/3883901" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-actros-tuning-pack-dlc-avto/3883901</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Renault Trucks T Tuning Pack🚀</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-renault-trucks-t-tuning-pack/3883917" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-renault-trucks-t-tuning-pack/3883917</a></td>
+                        <td>306 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔑 Metro: Last Light Redux (Steam) RU+CIS ✅Без комиссии</td>
+                        <td><a href="https://plati.market/itm/metro-last-light-redux-steam-ru-cis-no-fees/3588878" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/metro-last-light-redux-steam-ru-cis-no-fees/3588878</a></td>
+                        <td>310 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔑 SOLASTA: Crown of the Magister (Steam) ✅ RU+CIS</td>
+                        <td><a href="https://plati.market/itm/solasta-crown-of-the-magister-steam-ru-cis/3608428" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/solasta-crown-of-the-magister-steam-ru-cis/3608428</a></td>
+                        <td>310 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Forza Horizon 5 Welcome Pack 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/forza-horizon-5-welcome-pack-auto-0-cards/3865367" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/forza-horizon-5-welcome-pack-auto-0-cards/3865367</a></td>
+                        <td>315 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Escape the Backrooms Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/escape-the-backrooms-steam-gift-auto-0-cards/3879712" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/escape-the-backrooms-steam-gift-auto-0-cards/3879712</a></td>
+                        <td>318 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>People Playground Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/people-playground-steam-gift-auto-0-cards/3879740" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/people-playground-steam-gift-auto-0-cards/3879740</a></td>
+                        <td>318 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Project Winter Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/project-winter-steam-gift-auto-0-cards/3879742" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/project-winter-steam-gift-auto-0-cards/3879742</a></td>
+                        <td>318 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Chivalry 2 - Kings Edition Content · DLC Steam🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/chivalry-2-king-s-edition-content-dlc-steam-auto/3883664" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/chivalry-2-king-s-edition-content-dlc-steam-auto/3883664</a></td>
+                        <td>318 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Chivalry 2 - Special Edition Content · DLC Steam🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/chivalry-2-special-edition-content-dlc-steam-auto/3883666" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/chivalry-2-special-edition-content-dlc-steam-auto/3883666</a></td>
+                        <td>318 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Counter-Strike: Condition Zero Steam GIft 🚀 АВТО 💳0%</td>
+                        <td><a href="https://plati.market/itm/counter-strike-condition-zero-steam-gift-auto-0/3879706" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/counter-strike-condition-zero-steam-gift-auto-0/3879706</a></td>
+                        <td>318 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>CarX Drift Racing Online - Midnight · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/carx-drift-racing-online-midnight-dlc-avto-0/3885652" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/carx-drift-racing-online-midnight-dlc-avto-0/3885652</a></td>
+                        <td>318 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Spirit of Nian · DLC Steam🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-spirit-of-nian-dlc-steam-auto-0/3884103" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-spirit-of-nian-dlc-steam-auto-0/3884103</a></td>
+                        <td>318 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Zhong Kui · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-zhong-kui-dlc-steam-auto-0-cards/3884090" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-zhong-kui-dlc-steam-auto-0-cards/3884090</a></td>
+                        <td>318 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Devil May Cry 5 - Super Character 3-Pack DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/devil-may-cry-5-super-character-3-pack-dlc-auto-0/3971194" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/devil-may-cry-5-super-character-3-pack-dlc-auto-0/3971194</a></td>
+                        <td>325 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dead by Daylight - Ash vs Evil Dead DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/dead-by-daylight-ash-vs-evil-dead-dlc-auto-0-ru-ww/3941330" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dead-by-daylight-ash-vs-evil-dead-dlc-auto-0-ru-ww/3941330</a></td>
+                        <td>325 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dead by Daylight: LEATHERFACE DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/dead-by-daylight-leatherface-dlc-auto-0/3941277" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dead-by-daylight-leatherface-dlc-auto-0/3941277</a></td>
+                        <td>325 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dead by Daylight - Hellraiser chapter DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/dead-by-daylight-hellraiser-chapter-dlc-auto-0/3941284" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dead-by-daylight-hellraiser-chapter-dlc-auto-0/3941284</a></td>
+                        <td>325 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dead by Daylight: Ghostface DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/dead-by-daylight-ghostface-dlc-auto-0/3941296" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dead-by-daylight-ghostface-dlc-auto-0/3941296</a></td>
+                        <td>325 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dead by Daylight - Chucky Chapter DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/dead-by-daylight-chucky-chapter-dlc-auto-0/4094851" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dead-by-daylight-chucky-chapter-dlc-auto-0/4094851</a></td>
+                        <td>325 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dead by Daylight - Alan Wake Chapter · DLC 🚀АВТО💳0% К</td>
+                        <td><a href="https://plati.market/itm/dead-by-daylight-alan-wake-chapter-dlc-auto-0-c/4203037" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dead-by-daylight-alan-wake-chapter-dlc-auto-0-c/4203037</a></td>
+                        <td>325 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔰 Xbox Gift Card ✅ 100 TL (Турция) [Без комиссии]</td>
+                        <td><a href="https://plati.market/itm/xbox-gift-card-100-tl-turkey-no-fees/3975512" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/xbox-gift-card-100-tl-turkey-no-fees/3975512</a></td>
+                        <td>332 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Devil May Cry 5 - Live Action Cutscenes DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/devil-may-cry-5-live-action-cutscenes-dlc-auto-0/3971219" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/devil-may-cry-5-live-action-cutscenes-dlc-auto-0/3971219</a></td>
+                        <td>332 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Crusader Kings III: Friends & Foes DLC 🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/crusader-kings-iii-friends-foes-dlc-avto-0-karty/3884598" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/crusader-kings-iii-friends-foes-dlc-avto-0-karty/3884598</a></td>
+                        <td>343 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Crusader Kings III: Wards & Wardens · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/crusader-kings-iii-wards-wardens-dlc-avto-0/3884608" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/crusader-kings-iii-wards-wardens-dlc-avto-0/3884608</a></td>
+                        <td>343 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Rust Instrument Pack · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/rust-instrument-pack-dlc-steam-auto-0-cards/3883642" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/rust-instrument-pack-dlc-steam-auto-0-cards/3883642</a></td>
+                        <td>344 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>The Texas Chain Saw Massacre - Execution Pack 1 · DLC</td>
+                        <td><a href="https://plati.market/itm/the-texas-chain-saw-massacre-execution-pack-1-dlc/3884077" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/the-texas-chain-saw-massacre-execution-pack-1-dlc/3884077</a></td>
+                        <td>344 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Death Must Die · Steam Gift 🚀АВТОДОСТАВКА 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/death-must-die-steam-gift-autodelivery-0-cards/3999918" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/death-must-die-steam-gift-autodelivery-0-cards/3999918</a></td>
+                        <td>344 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Rust Sunburn Pack · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/rust-sunburn-pack-dlc-steam-auto-0-cards/3883641" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/rust-sunburn-pack-dlc-steam-auto-0-cards/3883641</a></td>
+                        <td>344 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>RESIDENT EVIL 3 - Classic Costume Pack DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/resident-evil-3-classic-costume-pack-dlc-auto-0/3971274" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/resident-evil-3-classic-costume-pack-dlc-auto-0/3971274</a></td>
+                        <td>346 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>⚫Vampire: The Masquerade - Swansong PRIMOGEN⚫Xbox🔑КЛЮЧ</td>
+                        <td><a href="https://plati.market/itm/vampire-the-masquerade-swansong-primogen-xbox-kljuch/4142045" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/vampire-the-masquerade-swansong-primogen-xbox-kljuch/4142045</a></td>
+                        <td>352 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Far Cry 4 Steam-RU 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/far-cry-4-steam-ru-auto-0-cards/3859708" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/far-cry-4-steam-ru-auto-0-cards/3859708</a></td>
+                        <td>354 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>SCUM Deluxe / Supporter Pack 1 · DLC Steam🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/scum-deluxe-supporter-pack-1-dlc-steam-auto-0/3884895" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/scum-deluxe-supporter-pack-1-dlc-steam-auto-0/3884895</a></td>
+                        <td>359 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>SCUM Deluxe 2 / Supporter Pack 2 · DLC Steam🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/scum-deluxe-2-supporter-pack-2-dlc-steam-auto-0/3884896" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/scum-deluxe-2-supporter-pack-2-dlc-steam-auto-0/3884896</a></td>
+                        <td>359 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Space Engineers Deluxe · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/space-engineers-deluxe-dlc-steam-auto-0-cards/3883428" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/space-engineers-deluxe-dlc-steam-auto-0-cards/3883428</a></td>
+                        <td>362 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>theHunter: Call of the Wild™ - Ambusher Pack DLC🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/thehunter-call-of-the-wild-ambusher-pack-dlc-auto/3961876" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/thehunter-call-of-the-wild-ambusher-pack-dlc-auto/3961876</a></td>
+                        <td>362 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>CarX Drift Racing Online - Street Tuners · DLC 🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/carx-drift-racing-online-street-tuners-dlc-avto/3885654" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/carx-drift-racing-online-street-tuners-dlc-avto/3885654</a></td>
+                        <td>362 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔑Pathfinder: Wrath of the Righteous ✅ Season Pass</td>
+                        <td><a href="https://plati.market/itm/pathfinder-wrath-of-the-righteous-season-pass/3608436" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/pathfinder-wrath-of-the-righteous-season-pass/3608436</a></td>
+                        <td>362 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Resident Evil 4 Leon & Ashley Costumes: Casual 🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/resident-evil-4-leon-ashley-costumes-casual-avto/3971411" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/resident-evil-4-leon-ashley-costumes-casual-avto/3971411</a></td>
+                        <td>364 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Resident Evil 4 Leon & Ashley Costumes: Romantic 🚀</td>
+                        <td><a href="https://plati.market/itm/resident-evil-4-leon-ashley-costumes-romantic/3971412" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/resident-evil-4-leon-ashley-costumes-romantic/3971412</a></td>
+                        <td>364 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Resident Evil 4 Treasure Map: Expansion DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/resident-evil-4-treasure-map-expansion-dlc-avto-0/3971419" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/resident-evil-4-treasure-map-expansion-dlc-avto-0/3971419</a></td>
+                        <td>364 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Resident Evil Village - Extra Content Shop All Access</td>
+                        <td><a href="https://plati.market/itm/resident-evil-village-extra-content-shop-all-access/3971377" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/resident-evil-village-extra-content-shop-all-access/3971377</a></td>
+                        <td>364 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Warhammer: Vermintide 2 · Steam Gift 🚀АВТОДОСТАВКА💳0%</td>
+                        <td><a href="https://plati.market/itm/warhammer-vermintide-2-steam-gift-autodelivery-0/3964299" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/warhammer-vermintide-2-steam-gift-autodelivery-0/3964299</a></td>
+                        <td>367 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Paleon · Steam Gift 🚀АВТОДОСТАВКА 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/paleon-steam-gift-autodelivery-0-cards/3971479" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/paleon-steam-gift-autodelivery-0-cards/3971479</a></td>
+                        <td>367 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Songs of Conquest · Steam Gift🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/songs-of-conquest-steam-gift-auto-0-cards/3880178" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/songs-of-conquest-steam-gift-auto-0-cards/3880178</a></td>
+                        <td>367 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>DARK SOULS III - Ashes of Ariandel · DLC Steam🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/dark-souls-iii-ashes-of-ariandel-dlc-steam-auto/3884932" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dark-souls-iii-ashes-of-ariandel-dlc-steam-auto/3884932</a></td>
+                        <td>367 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>DARK SOULS III - The Ringed City · DLC Steam🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/dark-souls-iii-the-ringed-city-dlc-steam-auto-0/3884933" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dark-souls-iii-the-ringed-city-dlc-steam-auto-0/3884933</a></td>
+                        <td>367 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Ghost Watchers Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/ghost-watchers-steam-gift-auto-0-cards/3879763" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/ghost-watchers-steam-gift-auto-0-cards/3879763</a></td>
+                        <td>367 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Warhammer: Vermintide 2 · Steam Gift 🚀АВТОДОСТАВКА💳0%</td>
+                        <td><a href="https://plati.market/itm/warhammer-vermintide-2-steam-gift-autodelivery-0/3964299" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/warhammer-vermintide-2-steam-gift-autodelivery-0/3964299</a></td>
+                        <td>367 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Halls of Torment Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/halls-of-torment-steam-gift-auto-0-cards/3879767" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/halls-of-torment-steam-gift-auto-0-cards/3879767</a></td>
+                        <td>369 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Legendary Creatures 2 · Steam Gift 🚀АВТОДОСТАВКА 💳0%</td>
+                        <td><a href="https://plati.market/itm/legendary-creatures-2-steam-gift-autodelivery-0/3961920" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/legendary-creatures-2-steam-gift-autodelivery-0/3961920</a></td>
+                        <td>369 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Inside The Backrooms Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/inside-the-backrooms-steam-gift-auto-0-cards/3879770" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/inside-the-backrooms-steam-gift-auto-0-cards/3879770</a></td>
+                        <td>369 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Outward Definitive Edition Steam-RU 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/outward-definitive-edition-steam-ru-auto-0-cards/3860046" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/outward-definitive-edition-steam-ru-auto-0-cards/3860046</a></td>
+                        <td>372 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Bloons TD 6 Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/bloons-td-6-steam-gift-auto-0-cards/3879783" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/bloons-td-6-steam-gift-auto-0-cards/3879783</a></td>
+                        <td>380 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Remnant: From the Ashes - Subject 2923 · DLC Steam🚀💳</td>
+                        <td><a href="https://plati.market/itm/remnant-from-the-ashes-subject-2923-dlc-steam/3906484" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/remnant-from-the-ashes-subject-2923-dlc-steam/3906484</a></td>
+                        <td>380 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Remnant: From the Ashes – Swamps of Corsus · DLC Steam</td>
+                        <td><a href="https://plati.market/itm/remnant-from-the-ashes-swamps-of-corsus-dlc-steam/3906486" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/remnant-from-the-ashes-swamps-of-corsus-dlc-steam/3906486</a></td>
+                        <td>380 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Volvo Construction Equipment🚀</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-volvo-construction-equipment/3883914" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-volvo-construction-equipment/3883914</a></td>
+                        <td>383 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Heavy Cargo Pack DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-heavy-cargo-pack-dlc-avto-0/3883875" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-heavy-cargo-pack-dlc-avto-0/3883875</a></td>
+                        <td>383 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - High Power Cargo Pack · DLC 🚀</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-high-power-cargo-pack-dlc/3883829" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-high-power-cargo-pack-dlc/3883829</a></td>
+                        <td>383 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Euro Truck Simulator 2 - Special Transport · DLC 🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/euro-truck-simulator-2-special-transport-dlc-avto/3883886" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/euro-truck-simulator-2-special-transport-dlc-avto/3883886</a></td>
+                        <td>383 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>NieR:Automata - 3C3C1D119440927 · DLC Steam🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/nier-automata-3c3c1d119440927-dlc-steam-auto-0/3906356" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/nier-automata-3c3c1d119440927-dlc-steam-auto-0/3906356</a></td>
+                        <td>387 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Control Ultimate Edition · Steam Gift🚀АВТОДОСТАВКА💳0%</td>
+                        <td><a href="https://plati.market/itm/control-ultimate-edition-steam-gift-autodelivery-0/3971494" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/control-ultimate-edition-steam-gift-autodelivery-0/3971494</a></td>
+                        <td>392 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Battle Brothers - Warriors of the North🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/battle-brothers-warriors-of-the-north-auto-0-cards/3880167" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/battle-brothers-warriors-of-the-north-auto-0-cards/3880167</a></td>
+                        <td>392 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Battle Brothers - Beasts & Exploration 🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/battle-brothers-beasts-exploration-auto-0-cards/3880165" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/battle-brothers-beasts-exploration-auto-0-cards/3880165</a></td>
+                        <td>392 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Grim Dawn - Crucible Mode DLC · Steam Gift🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/grim-dawn-crucible-mode-dlc-steam-gift-auto-0/3880193" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/grim-dawn-crucible-mode-dlc-steam-gift-auto-0/3880193</a></td>
+                        <td>393 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>TMNT: Shredders Revenge - Dimension Shellshock 🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/tmnt-shredder-s-revenge-dimension-shellshock-avto/3883587" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/tmnt-shredder-s-revenge-dimension-shellshock-avto/3883587</a></td>
+                        <td>393 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Content Warning · RU/KZ/UA/TR/AR/CIS 🚀АВТОДОСТАВКА💳0%</td>
+                        <td><a href="https://plati.market/itm/content-warning-ru-kz-ua-tr-ar-cis-autodelivery-0/4283766" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/content-warning-ru-kz-ua-tr-ar-cis-autodelivery-0/4283766</a></td>
+                        <td>393 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Azure Arsenal · DLC 🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-azure-arsenal-dlc-auto-0-cards/3884115" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-azure-arsenal-dlc-auto-0-cards/3884115</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Bridgewaters Honor · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-bridgewater-s-honor-dlc-avto-0/3884119" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-bridgewater-s-honor-dlc-avto-0/3884119</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown – Fear The Reaper · DLC Steam🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-fear-the-reaper-dlc-steam-auto-0/3884125" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-fear-the-reaper-dlc-steam-auto-0/3884125</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Crossroads · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-crossroads-dlc-steam-auto-0-cards/3884092" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-crossroads-dlc-steam-auto-0-cards/3884092</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Live by the Blade · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-live-by-the-blade-dlc-auto-0/3884099" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-live-by-the-blade-dlc-auto-0/3884099</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - They Came From Salem · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-they-came-from-salem-dlc-auto-0/3884116" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-they-came-from-salem-dlc-auto-0/3884116</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Meridian Turncoat DLC 🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-meridian-turncoat-dlc-auto-0-cards/3884117" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-meridian-turncoat-dlc-auto-0-cards/3884117</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Lonely Howl DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-lonely-howl-dlc-steam-auto-0-cards/3884118" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-lonely-howl-dlc-steam-auto-0-cards/3884118</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Legends of the Bayou · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-legends-of-the-bayou-dlc-avto-0/3884083" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-legends-of-the-bayou-dlc-avto-0/3884083</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - The Wolf at the Door · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-the-wolf-at-the-door-dlc-auto-0/3884105" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-the-wolf-at-the-door-dlc-auto-0/3884105</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - The Prescient Night · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-the-prescient-night-dlc-avto-0/3884121" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-the-prescient-night-dlc-avto-0/3884121</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown – Fear The Reaper · DLC Steam🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-fear-the-reaper-dlc-steam-auto-0/3884125" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-fear-the-reaper-dlc-steam-auto-0/3884125</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Crossroads · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-crossroads-dlc-steam-auto-0-cards/3884092" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-crossroads-dlc-steam-auto-0-cards/3884092</a></td>
+                        <td>404 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Assassin´s Creed Unity Secrets of the Revolution 🚀💳0%</td>
+                        <td><a href="https://plati.market/itm/assassin-s-creed-unity-secrets-of-the-revolution--0/3865928" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/assassin-s-creed-unity-secrets-of-the-revolution--0/3865928</a></td>
+                        <td>414 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔑 The Entropy Centre (Steam) RU+CIS ✅ Без комиссии</td>
+                        <td><a href="https://plati.market/itm/the-entropy-centre-steam-ru-cis-no-fees/3584028" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/the-entropy-centre-steam-ru-cis-no-fees/3584028</a></td>
+                        <td>416 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔑 SUPERHOT VR (Steam) RU+CIS ✅ Без комиссии</td>
+                        <td><a href="https://plati.market/itm/superhot-vr-steam-ru-cis-no-fees/3608455" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/superhot-vr-steam-ru-cis-no-fees/3608455</a></td>
+                        <td>418 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Forza Horizon 5 Formula Drift Pack 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/forza-horizon-5-formula-drift-pack-auto-0-cards/3865369" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/forza-horizon-5-formula-drift-pack-auto-0-cards/3865369</a></td>
+                        <td>421 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dont Starve Together Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/don-t-starve-together-steam-gift-auto-0-cards/3879800" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/don-t-starve-together-steam-gift-auto-0-cards/3879800</a></td>
+                        <td>429 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>FatalZone · Steam Gift 🚀АВТОДОСТВКА 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/fatalzone-steam-gift-autodelivery-0-cards/3967072" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/fatalzone-steam-gift-autodelivery-0-cards/3967072</a></td>
+                        <td>429 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>My Summer Car Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/my-summer-car-steam-gift-auto-0-cards/3879806" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/my-summer-car-steam-gift-auto-0-cards/3879806</a></td>
+                        <td>429 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>TINY BUNNY Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/tiny-bunny-steam-gift-auto-0-cards/3879808" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/tiny-bunny-steam-gift-auto-0-cards/3879808</a></td>
+                        <td>429 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Divinity: Original Sin 2 - Divine Ascension 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/divinity-original-sin-2-divine-ascension-avto-0/3880456" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/divinity-original-sin-2-divine-ascension-avto-0/3880456</a></td>
+                        <td>429 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Grim Dawn - Steam Loyalist 2 DLC · Steam Gift🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/grim-dawn-steam-loyalist-2-dlc-steam-gift-auto-0/3880209" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/grim-dawn-steam-loyalist-2-dlc-steam-gift-auto-0/3880209</a></td>
+                        <td>430 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Grim Dawn - Steam Loyalist Upgrade Steam Gift🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/grim-dawn-steam-loyalist-upgrade-steam-gift-auto-0/3880198" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/grim-dawn-steam-loyalist-upgrade-steam-gift-auto-0/3880198</a></td>
+                        <td>430 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Black Desert Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/black-desert-steam-gift-auto-0-cards/3879809" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/black-desert-steam-gift-auto-0-cards/3879809</a></td>
+                        <td>430 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Arma 3 Tac-Ops Mission Pack · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/arma-3-tac-ops-mission-pack-dlc-steam-auto-0-cards/3884766" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/arma-3-tac-ops-mission-pack-dlc-steam-auto-0-cards/3884766</a></td>
+                        <td>434 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔑 SOLASTA: Crown of the Magister - Lost Valley ✅ DLC</td>
+                        <td><a href="https://plati.market/itm/solasta-crown-of-the-magister-lost-valley-dlc/3608431" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/solasta-crown-of-the-magister-lost-valley-dlc/3608431</a></td>
+                        <td>435 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Warhammer: Vermintide 2 - Winds of Magic DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/warhammer-vermintide-2-winds-of-magic-dlc-auto-0/3964306" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/warhammer-vermintide-2-winds-of-magic-dlc-auto-0/3964306</a></td>
+                        <td>436 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Northgard - Cross of Vidar Expansion Pack · DLC Steam🚀</td>
+                        <td><a href="https://plati.market/itm/northgard-cross-of-vidar-expansion-pack-dlc-steam/3906410" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/northgard-cross-of-vidar-expansion-pack-dlc-steam/3906410</a></td>
+                        <td>439 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Rust Voice Props Pack · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/rust-voice-props-pack-dlc-steam-auto-0-cards/3883640" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/rust-voice-props-pack-dlc-steam-auto-0-cards/3883640</a></td>
+                        <td>442 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Alan Wake · Steam Gift 🚀АВТОДОСТАВКА 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/alan-wake-steam-gift-autodelivery-0-cards/3971486" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/alan-wake-steam-gift-autodelivery-0-cards/3971486</a></td>
+                        <td>442 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Land of the Vikings · Steam Gift 🚀АВТОДОСТАВКА 💳0%</td>
+                        <td><a href="https://plati.market/itm/land-of-the-vikings-steam-gift-autodelivery-0/3961861" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/land-of-the-vikings-steam-gift-autodelivery-0/3961861</a></td>
+                        <td>445 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>⚫️MK1: One-Time Dragon Pack Kitana⚫XBOX🔑Ключ</td>
+                        <td><a href="https://plati.market/itm/mk1-one-time-dragon-pack-kitana-xbox-key/4652609" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/mk1-one-time-dragon-pack-kitana-xbox-key/4652609</a></td>
+                        <td>449 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Metro Exodus Steam-RU 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/metro-exodus-steam-ru-auto-0-cards/3864979" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/metro-exodus-steam-ru-auto-0-cards/3864979</a></td>
+                        <td>449 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔰 Xbox Gift Card ✅ 25 BRL (Бразилия) [Без комиссии]</td>
+                        <td><a href="https://plati.market/itm/xbox-gift-card-25-brl-brazil-no-fees/4282775" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/xbox-gift-card-25-brl-brazil-no-fees/4282775</a></td>
+                        <td>459 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Garten of Banban 2 Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/garten-of-banban-2-steam-gift-auto-0-cards/3879810" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/garten-of-banban-2-steam-gift-auto-0-cards/3879810</a></td>
+                        <td>461 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Garten of Banban 3 Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/garten-of-banban-3-steam-gift-auto-0-cards/3879813" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/garten-of-banban-3-steam-gift-auto-0-cards/3879813</a></td>
+                        <td>461 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>CarX Drift Racing Online - Young Timers · DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/carx-drift-racing-online-young-timers-dlc-avto-0/3885660" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/carx-drift-racing-online-young-timers-dlc-avto-0/3885660</a></td>
+                        <td>464 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>S.T.A.L.K.E.R.: Bundle · Steam Gift 🚀АВТОДОСТАВКА 💳0%</td>
+                        <td><a href="https://plati.market/itm/s-t-a-l-k-e-r-bundle-steam-gift-autodelivery-0/3971538" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/s-t-a-l-k-e-r-bundle-steam-gift-autodelivery-0/3971538</a></td>
+                        <td>465 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Call of Duty: Black Ops III - The Giant · DLC 🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/call-of-duty-black-ops-iii-the-giant-dlc-auto/3906735" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/call-of-duty-black-ops-iii-the-giant-dlc-auto/3906735</a></td>
+                        <td>467 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>The Front · Steam Gift 🚀АВТОДОСТАВКА 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/the-front-steam-gift-autodelivery-0-cards/3961882" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/the-front-steam-gift-autodelivery-0-cards/3961882</a></td>
+                        <td>471 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Stormworks: Space · Steam DLC🚀АВТОДОСТАВКА 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/stormworks-space-steam-dlc-autodelivery-0-cards/3961888" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/stormworks-space-steam-dlc-autodelivery-0-cards/3961888</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>The Coffin of Andy and Leyley 🚀АВТО💳0% РФ/МИР</td>
+                        <td><a href="https://plati.market/itm/the-coffin-of-andy-and-leyley-auto-0-ru-ww/3961894" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/the-coffin-of-andy-and-leyley-auto-0-ru-ww/3961894</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Fears to Fathom - Ironbark Lookout 🚀АВТО💳0% РФ/МИР</td>
+                        <td><a href="https://plati.market/itm/fears-to-fathom-ironbark-lookout-auto-0-ru-ww/3964340" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/fears-to-fathom-ironbark-lookout-auto-0-ru-ww/3964340</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Friends vs Friends · Steam Gift🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/friends-vs-friends-steam-gift-auto-0-cards/3921047" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/friends-vs-friends-steam-gift-auto-0-cards/3921047</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Heretics Fork · Steam Gift🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/heretic-s-fork-steam-gift-auto-0-cards/3921060" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/heretic-s-fork-steam-gift-auto-0-cards/3921060</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Left 4 Dead 2 Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/left-4-dead-2-steam-gift-auto-0-cards/3879774" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/left-4-dead-2-steam-gift-auto-0-cards/3879774</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Deep Rock Galactic: Survivor · 🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/deep-rock-galactic-survivor--auto-0-cards/4192836" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/deep-rock-galactic-survivor--auto-0-cards/4192836</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Karmazoo · Steam Gift 🚀АВТОДОСТВКА 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/karmazoo-steam-gift-autodelivery-0-cards/3972528" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/karmazoo-steam-gift-autodelivery-0-cards/3972528</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Lethal Company 🚀АВТО💳0% RU/UA/KZ/CIS/TR/AR</td>
+                        <td><a href="https://plati.market/itm/lethal-company-auto-0-ru-ua-kz-cis-tr-ar/3971511" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/lethal-company-auto-0-ru-ua-kz-cis-tr-ar/3971511</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>The Devourer: Hunted Souls · Steam Gift 🚀АВТОДОСТАВКА</td>
+                        <td><a href="https://plati.market/itm/the-devourer-hunted-souls-steam-gift-autodelivery/3971483" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/the-devourer-hunted-souls-steam-gift-autodelivery/3971483</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Darkest Dungeon® II: The Binding Blade DLC🚀АВТО💳0% РФ</td>
+                        <td><a href="https://plati.market/itm/darkest-dungeon-ii-the-binding-blade-dlc-auto-0-ru/4090273" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/darkest-dungeon-ii-the-binding-blade-dlc-auto-0-ru/4090273</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>PAYDAY 2 Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/payday-2-steam-gift-auto-0-cards/3879614" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/payday-2-steam-gift-auto-0-cards/3879614</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Portal 2 Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/portal-2-steam-gift-auto-0-cards/3879830" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/portal-2-steam-gift-auto-0-cards/3879830</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Garten of Banban 4 Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/garten-of-banban-4-steam-gift-auto-0-cards/3879815" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/garten-of-banban-4-steam-gift-auto-0-cards/3879815</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Counter-Strike: Source Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/counter-strike-source-steam-gift-auto-0-cards/3879814" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/counter-strike-source-steam-gift-auto-0-cards/3879814</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Deadside Supporter Pack · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/deadside-supporter-pack-dlc-steam-auto-0-cards/3880470" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/deadside-supporter-pack-dlc-steam-auto-0-cards/3880470</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Portal Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/portal-steam-gift-auto-0-cards/3879822" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/portal-steam-gift-auto-0-cards/3879822</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Soulstone Survivors Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/soulstone-survivors-steam-gift-auto-0-cards/3879833" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/soulstone-survivors-steam-gift-auto-0-cards/3879833</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>DEVOUR Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/devour-steam-gift-auto-0-cards/3879661" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/devour-steam-gift-auto-0-cards/3879661</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Baldurs Gate 3 - Digital Deluxe Edition DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/baldur-s-gate-3-digital-deluxe-edition-dlc-auto-0/3884838" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/baldur-s-gate-3-digital-deluxe-edition-dlc-auto-0/3884838</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>DEVOUR Steam GIft 🚀 АВТО 💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/devour-steam-gift-auto-0-cards/3879661" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/devour-steam-gift-auto-0-cards/3879661</a></td>
+                        <td>473 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown – The Concubine · DLC 🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-the-concubine-dlc-auto-0-cards/3884126" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-the-concubine-dlc-auto-0-cards/3884126</a></td>
+                        <td>478 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - La Luz Mala · DLC 🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-la-luz-mala-dlc-auto-0-cards/3884128" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-la-luz-mala-dlc-auto-0-cards/3884128</a></td>
+                        <td>478 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Shrine Maidens Hell · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-shrine-maiden-s-hell-dlc-auto-0/3884134" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-shrine-maiden-s-hell-dlc-auto-0/3884134</a></td>
+                        <td>478 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Myth of the Moors DLC Steam🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-myth-of-the-moors-dlc-steam-auto-0/3884135" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-myth-of-the-moors-dlc-steam-auto-0/3884135</a></td>
+                        <td>478 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Bark, Bone and Blood · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-bark-bone-and-blood-dlc-avto-0/3884136" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-bark-bone-and-blood-dlc-avto-0/3884136</a></td>
+                        <td>478 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Commedia Della Morte · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-commedia-della-morte-dlc-avto-0/3884130" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-commedia-della-morte-dlc-avto-0/3884130</a></td>
+                        <td>478 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - Still Waters Run Deep · DLC 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-still-waters-run-deep-dlc-avto-0/3884131" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-still-waters-run-deep-dlc-avto-0/3884131</a></td>
+                        <td>478 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Hunt: Showdown - The Phantom of the Catacombs · DLC 🚀</td>
+                        <td><a href="https://plati.market/itm/hunt-showdown-the-phantom-of-the-catacombs-dlc/3884132" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/hunt-showdown-the-phantom-of-the-catacombs-dlc/3884132</a></td>
+                        <td>478 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Risk of Rain 2: Seekers of the Storm DLC 🚀RU/KZ/UA/CIS</td>
+                        <td><a href="https://plati.market/itm/risk-of-rain-2-seekers-of-the-storm-dlc-ru-kz-ua-cis/4617420" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/risk-of-rain-2-seekers-of-the-storm-dlc-ru-kz-ua-cis/4617420</a></td>
+                        <td>480 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>CarX Drift Racing Online - Hit The Wall · DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/carx-drift-racing-online-hit-the-wall-dlc-avto-0/3885655" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/carx-drift-racing-online-hit-the-wall-dlc-avto-0/3885655</a></td>
+                        <td>485 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>The Elder Scrolls Online (+Morrowind) Steam 🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/the-elder-scrolls-online-morrowind-steam-auto-0/3906547" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/the-elder-scrolls-online-morrowind-steam-auto-0/3906547</a></td>
+                        <td>485 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>CarX Drift Racing Online - Sayaka Shimoda · DLC 🚀АВТО</td>
+                        <td><a href="https://plati.market/itm/carx-drift-racing-online-sayaka-shimoda-dlc-avto/3885657" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/carx-drift-racing-online-sayaka-shimoda-dlc-avto/3885657</a></td>
+                        <td>485 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Risk of Rain 2 - Survivors of the Void · DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/risk-of-rain-2-survivors-of-the-void-dlc-avto-0/3880516" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/risk-of-rain-2-survivors-of-the-void-dlc-avto-0/3880516</a></td>
+                        <td>485 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔰 Blizzard Gift Card 💠 5$ (USA) [Без комиссии]</td>
+                        <td><a href="https://plati.market/itm/blizzard-gift-card-5-usa-no-fees/3427594" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/blizzard-gift-card-5-usa-no-fees/3427594</a></td>
+                        <td>489 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Farming Simulator 22 - OXBO Pack · DLC Steam🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/farming-simulator-22-oxbo-pack-dlc-steam-auto-0/3884661" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/farming-simulator-22-oxbo-pack-dlc-steam-auto-0/3884661</a></td>
+                        <td>490 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Car For Sale Simulator 2023 Steam GIft 🚀 АВТО 💳0% Кар</td>
+                        <td><a href="https://plati.market/itm/car-for-sale-simulator-2023-steam-gift-auto-0-car/3879835" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/car-for-sale-simulator-2023-steam-gift-auto-0-car/3879835</a></td>
+                        <td>490 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Teardown: Time Campers DLC🚀АВТО💳0%</td>
+                        <td><a href="https://plati.market/itm/teardown-time-campers-dlc-auto-0/4005872" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/teardown-time-campers-dlc-auto-0/4005872</a></td>
+                        <td>490 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Virtual Circuit Board · Steam Gift 🚀АВТОДОСТАВКА 💳0%</td>
+                        <td><a href="https://plati.market/itm/virtual-circuit-board-steam-gift-autodelivery-0/3961857" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/virtual-circuit-board-steam-gift-autodelivery-0/3961857</a></td>
+                        <td>492 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>For Honor - Sohei Hero · DLC 🚀АВТОДОСТАВКА💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/for-honor-sohei-hero-dlc-autodelivery-0-cards/4525473" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/for-honor-sohei-hero-dlc-autodelivery-0-cards/4525473</a></td>
+                        <td>495 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>SCUM Danny Trejo · DLC Steam🚀АВТО💳0% Карты</td>
+                        <td><a href="https://plati.market/itm/scum-danny-trejo-dlc-steam-auto-0-cards/3906785" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/scum-danny-trejo-dlc-steam-auto-0-cards/3906785</a></td>
+                        <td>496 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dragons dogma 2: 2500 кристаллов Разлома (A)</td>
+                        <td><a href="https://plati.market/itm/dragon-s-dogma-2-2500-rift-crystals-a/4257872" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/dragon-s-dogma-2-2500-rift-crystals-a/4257872</a></td>
+                        <td>498 руб. </td>
+                    </tr>
+                
+                    <tr>
+                        <td>🔰 Diablo IV 😈 Платина🔥XBOX🔥500/1000/2800/5700/11500</td>
+                        <td><a href="https://plati.market/itm/diablo-iv-platinum-xbox-500-1000-2800-5700-11500/4014994" target="_blank" rel="noopener noreferrer"> https://plati.market/itm/diablo-iv-platinum-xbox-500-1000-2800-5700-11500/4014994</a></td>
+                        <td>499 руб. </td>
+                    </tr>
+                        </tr></tbody></table>
+
+<h2 id="noDataLabel" class="no-data-display-none">Ни одной записи не было найдено</h2>
+
+<br><br/>
+
+<div id="paginationWrapper">
+
+</div>
+
+<h3>ПО формирования отчетов для площадки Plati Market создано Игорем Вешкиным (by IgorVeshkin)</h3>
+
+
+<script type="text/javascript">
+
+    // Ссылка на кнопку поиска
+    var search_btn = document.getElementById('search_btn');
+
+    // Ссылка на таблицу
+    var myTable = document.getElementsByTagName("table")[0];
+
+    // Создаем массив всех данных таблицы из HTMLCollection
+    // Получиться массив HTMLTableRowElement элементов, с которыми можно взаимодействовать с помощью cells
+    var tableData = Array.from(myTable.rows);
+
+    // Убераем заголовок и пустой tr объект из массива
+    // Заменил -1 на tableData.length, поскольку последный элемент пропадал из выборки
+    var tableDataFull =  tableData.slice(2, tableData.length); // tableData.slice(2, tableData.at(-1));
+
+    // Получаем tbody таблицы
+    var tbody = myTable.children[1];
+
+    // Переменная, хранящая поле ввода названия для поиска
+    var searchInput = document.getElementById('searchInput');
+
+    // Переменная, хранящая данные нужен ли ресет поиска
+    var needReset = false;
+
+    // Ссылка на spinner
+    var spinner = document.getElementById('spinner');
+
+    // Ссылка на текст с информацией об отсутствии записей
+    var noDataLabel = document.getElementById('noDataLabel');
+
+    // https://www.geeksforgeeks.org/how-to-wait-n-seconds-in-javascript/?ysclid=m1w7n57v2h997770764
+
+    // Переменная ожидания
+    function wait(seconds) {
+        return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+    }
+
+    search_btn.addEventListener('click', async () => {
+
+        // alert('Базовая проверка, что нажатие по кнопке проходит!');
+
+        // Получаем данные поиска
+        searchValue = searchInput.value.toLowerCase();
+
+        // Проверка введены ли данные для поиска
+        if(!searchValue) {
+            alert("Внимание: Поиск не может быть выполнен! Введите данные для поиска!");
+            return;
+        }
+
+        // Скрываем текст об отсутствие товаров в отчете
+        noDataLabel.classList.add('no-data-display-none');
+        noDataLabel.classList.remove('no-data-display');
+
+        // Отображаем спинер, чтобы не создавалось ощющение задерки в работе программы
+        spinner.classList.add('loader-display-flex');
+        spinner.classList.remove('loader-display-none');
+
+        // Ожидаем пол-секунды
+        await wait(0.5);
+
+        // Удаляем все данные из таблицы
+        tbody.innerHTML = '';
+
+        needReset = true;
+
+        // Очищаем блок хранения пагинации при поиске
+        // paginationWrapper.innerHTML = '';
+
+        // Проверка: если пагинация при поиске не была включена, то....
+        if(usePaginationCheckbox.checked) {
+           // Указываем, что пагинация инициирована программно
+           isPaginationCheckboxChangedByJavaScript = true;
+
+           // Отключаем пагинацию
+           usePaginationCheckbox.click();
+
+           // Ожидаем пол-секунды
+           // await wait(0.5);
+
+           }
+
+        // Запускаем цикл, перебирая все строки таблицы
+        tableDataFull.map((record) => {
+
+            // Получаем название товара. Переводим текст в нижний регистр
+            var recordName = record.cells[0].innerHTML.toLowerCase();
+
+            // Если строка из поиска встречается в название товара в таблице, то
+            if(recordName.includes(searchValue)) {
+
+                // Товар добавляется в таблицу поиска
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${record.cells[0].innerHTML}</td>
+                        <td>${record.cells[1].innerHTML}</td>
+                        <td>${record.cells[2].innerHTML}</td>
+                    </tr>
+                `;
+            }
+        });
+
+        // Скрываем спинер, поскольку данные прогрузились
+        spinner.classList.add('loader-display-none');
+        spinner.classList.remove('loader-display-flex');
+
+        // Если не найдено ни одного товара, то...
+        if(!tbody.innerHTML) {
+
+            // alert('Нет данных о данном товаре');
+
+            // Отображаем текст об отсутствие товаров в отчете
+            noDataLabel.classList.add('no-data-display');
+            noDataLabel.classList.remove('no-data-display-none');
+
+        }
+
+        // Получение содержимого тега tbody таблицы
+        // alert(myTable.children[1].innerHTML);
+
+        // Удаление тега tbody (Внимание удаляется весь тег полностью)
+        // myTable.children[1].remove();
+
+        // Удаление только содержимого tbody
+        // myTable.children[1].innerHTML = '';
+
+        // Взаимодействие с определенной ячейкой ряда. Получаем его значение
+        // alert(tableData[10].cells[0].innerHTML);
+
+        // Добавление новой записи в tbody таблицу
+        // Будет выполняться в цикле
+        /*
+        tbody.innerHTML += `
+            <tr>
+                <td>${tableData[10].cells[0].innerHTML}</td>
+                <td>${tableData[10].cells[1].innerHTML}</td>
+                <td>${tableData[10].cells[2].innerHTML}</td>
+            </tr>
+        `;
+        */
+
+    });
+
+
+    // Ссылка на кнопку сброса поиска
+    var reset_btn = document.getElementById('reset_btn');
+
+    // Если кнопка сброса нажата
+    reset_btn.addEventListener('click', async () => {
+
+        // И если до этого момента поиск был выполнен, то...
+        if(needReset) {
+
+            // Отображаем спинер, чтобы не создавалось ощющение задерки в работе программы
+            spinner.classList.add('loader-display-flex');
+            spinner.classList.remove('loader-display-none');
+
+            // Ожидаем пол-секунды
+            await wait(0.5);
+
+            // Очищаем таблицу, чтобы результат поиска был удален из таблицы
+            tbody.innerHTML = '';
+
+            // Запускаем цикл, перебирая все сохраненные данные таблицы в отдельной переменной
+            tableDataFull.map((record) => {
+
+                // Добавляем данные в таблицу
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${record.cells[0].innerHTML}</td>
+                        <td>${record.cells[1].innerHTML}</td>
+                        <td>${record.cells[2].innerHTML}</td>
+                    </tr>
+                `;
+
+            });
+
+            needReset = false;
+
+            searchInput.value = '';
+
+            // Скрываем спинер, поскольку данные прогрузились
+            spinner.classList.add('loader-display-none');
+            spinner.classList.remove('loader-display-flex');
+
+            // Скрываем текст об отсутствие товаров в отчете
+            noDataLabel.classList.add('no-data-display-none');
+            noDataLabel.classList.remove('no-data-display');
+
+        } else {
+
+            alert('Внимание: Сброс поиска не может быть произведен, поскольку на данный момент отображаются исходные данные!');
+
+        }
+
+
+    });
+
+
+
+</script>
+
+<!-- Скрипт обработки пагинации (Код из этого блока встречается в предыдущем блоке для отключения пагинации) -->
+
+<script type="text/javascript">
+
+    // Объект выбора пагенации
+    var usePaginationCheckbox = document.getElementById('usePaginationCheckbox');
+
+    // Проверка состояния checkbox-а пагинации
+    // alert(usePaginationCheckbox.checked);
+
+    // При выполнении поиска товара пагинация будет сбрасываться, поэтому должно быть внесена проверка
+    // Чтобы различать ручной сброс пагинации от той, что выполняется в коде с помощью JavaScript
+    var isPaginationCheckboxChangedByJavaScript = false;
+
+    // Объект, внутри которого будет храниться пагинация
+    var paginationWrapper = document.getElementById('paginationWrapper');
+
+    // Создаем массив кнопок пагинации, чтобы при нажатии на них не возникало ошибки
+    var paginationButtons = null;
+
+    // При использовании анонимной функции () => {}, this.checked возвращает undefined
+
+    usePaginationCheckbox.addEventListener('change', async function() {
+        if(this.checked) {
+            // alert('Пагинация включена!');
+
+            // Если необходимо переходить в режим пагенации прямо из режима поиска,
+            // то можно закоментировать эту проверку
+            // Но тогда придется раскоментировать needReset = false; и noDataLabel
+
+            if(needReset) {
+                alert('Внимание: Чтобы включить пагинацию, сбросьте поиск');
+                this.checked = false;
+                return;
+            }
+
+            // Отображаем спинер пагенации, чтобы не создавалось ощющение задерки в работе программы
+            paginationSpinner.classList.add('loader-display-flex');
+            paginationSpinner.classList.remove('loader-display-none');
+
+            // Ожидаем пол-секунды
+            await wait(0.5);
+
+            createPagination();
+
+            // Заполняем пагинацию при ее включении
+            paginationButtons = Array.from(paginationWrapper.children);
+
+            // needReset = false;
+
+            searchInput.value = '';
+
+            // Скрываем спинер пагенации, поскольку данные прогрузились
+            paginationSpinner.classList.add('loader-display-none');
+            paginationSpinner.classList.remove('loader-display-flex');
+
+
+            // Скрываем текст об отсутствие товаров в отчете
+            // noDataLabel.classList.add('no-data-display-none');
+            // noDataLabel.classList.remove('no-data-display');
+
+
+        } else {
+            // alert('Пагинация выключена!');
+
+            // Очищаем блок хранения пагинации
+            paginationWrapper.innerHTML = '';
+
+            // alert('isPaginationCheckboxChangedByJavaScript ' + isPaginationCheckboxChangedByJavaScript);
+
+            // Если сброс пагинации не программный (пользователь сам отключил пагинацию), то...
+            if(!isPaginationCheckboxChangedByJavaScript) {
+
+                // Отображаем спинер пагенации, чтобы не создавалось ощющение задерки в работе программы
+                paginationSpinner.classList.add('loader-display-flex');
+                paginationSpinner.classList.remove('loader-display-none');
+
+                // Ожидаем пол-секунды
+                await wait(0.5);
+
+
+                // Очищаем таблицу, чтобы результат был удален из таблицы
+                tbody.innerHTML = '';
+
+                // Запускаем цикл, перебирая все сохраненные данные таблицы в отдельной переменной
+                tableDataFull.map((record) => {
+
+                    // Добавляем данные в таблицу
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${record.cells[0].innerHTML}</td>
+                            <td>${record.cells[1].innerHTML}</td>
+                            <td>${record.cells[2].innerHTML}</td>
+                        </tr>
+                    `;
+
+                });
+
+                needReset = false;
+
+                searchInput.value = '';
+
+                // Скрываем спинер пагенации, поскольку данные прогрузились
+                paginationSpinner.classList.add('loader-display-none');
+                paginationSpinner.classList.remove('loader-display-flex');
+
+                // Не всегда срабатывает, поэтому продублировано за пределом проверки
+                isPaginationCheckboxChangedByJavaScript = false;
+
+            }
+
+            // Продублировано с целью избежания ошибки
+            // Если в режиме пагинации выполнить поиск, сбросить поиск, а затем включить пагенацию снова и выключить,
+            // то пагинация исчезнет, а данные к исходным не вернуться
+            isPaginationCheckboxChangedByJavaScript = false;
+
+        }
+
+    });
+
+
+    // Если при открытии страницы пагинация используется, то отрисовываем соответствующие элементы
+    if(usePaginationCheckbox.checked) {
+
+        createPagination();
+
+    // Окончание проверки if usePaginationCheckbox
+    }
+
+
+    // Функция создания пагинации
+    const createPagination = () => {
+
+        // Текущая страница пагинации
+        var currentPage = 1;
+
+        // Ссылка на таблицу (можно использовать myTable из предыдущего блока script)
+        // var myTableLink = document.getElementsByTagName("table")[0];
+
+        // Создаем массив всех данных таблицы из HTMLCollection
+        // Получиться массив HTMLTableRowElement элементов, с которыми можно взаимодействовать с помощью cells
+
+        // Переменная myTable была объявлена в блоке script выше
+
+        // var tableDataArray = Array.from(myTable.rows);
+
+        // Получаем общее количество записей
+        //var recordsNumber = tableDataArray.slice(2, -1).length + 1; // tableData.slice(2, tableData.at(-1));
+
+        // Используем массив данных из предыдущего блока script
+        var recordsNumber = tableDataFull.length;
+
+        // Индекс последней страницы
+        var lastPageNumber = Math.ceil(recordsNumber / 10);
+
+        // Создаем пагинацию при старте страницы
+        for(let i=1; i <= lastPageNumber; i++) {
+            if(i == currentPage) {
+                paginationWrapper.innerHTML += `<button
+                disabled='true'
+                class='pagination-page selected-page'
+                onclick="changePagination(${i});"
+                >${i}</button>`;
+                continue;
+            }
+
+            paginationWrapper.innerHTML += `<button
+                class='pagination-page'
+
+                onclick="changePagination(${i});">${i}</button>`;
+
+        }
+
+        // Выполняется при запуске страницы
+        // tbody был объявлен в предыдующем блоке script
+        // Удаляем все данные в таблице
+        tbody.innerHTML = '';
+
+        // Отображаем только первые 10 товаров на странице
+        for (let i=0; i<10; i++) {
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>${tableDataFull[i].cells[0].innerHTML}</td>
+                    <td>${tableDataFull[i].cells[1].innerHTML}</td>
+                    <td>${tableDataFull[i].cells[2].innerHTML}</td>
+                </tr>
+            `;
+        }
+
+        // Получаем все кнопки пагинации на странице в виде [object HTMLCollection]
+        // Переконвертируем в Array
+        // Ссылка на ресурс: https://stackoverflow.com/questions/222841/most-efficient-way-to-convert-an-htmlcollection-to-an-array
+        var paginationButtons = Array.from(paginationWrapper.children);
+
+        // Получаем массив, состоящий из [object HTMLButtonElement]
+        // alert(paginationButtons);
+
+    }
+
+
+    const changePagination = (pageIndex) => {
+        // По какой - то причине индекс выдает на единицу больше. По этой причине берем на 1 меньше
+
+        // alert(paginationButtons[pageIndex].innerHTML);
+
+        // Все ранее неактивные кнопки становятся снова активными
+        paginationButtons.map((button) => {
+            if(button.disabled) {
+                button.disabled = false;
+            }
+        });
+
+        // Текущая выбранная кнопка перестает быть активной.
+        // Индекс выдает на единицу больше, поскольку отчет нумерации в JavaScript с нуля, а не с единицы
+        paginationButtons[pageIndex-1].disabled = true;
+
+        // Удаляем все данные в таблице
+        tbody.innerHTML = '';
+
+        fistTableElementIndex = 10*((pageIndex) - 1) + 1;
+        lastTableElementIndex = 10*(pageIndex);
+
+        // Отображаем элементы соответсвующие нужной странице пагинации
+        for (let i=fistTableElementIndex-1; i<lastTableElementIndex; i++) {
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>${tableDataFull[i].cells[0].innerHTML}</td>
+                    <td>${tableDataFull[i].cells[1].innerHTML}</td>
+                    <td>${tableDataFull[i].cells[2].innerHTML}</td>
+                </tr>
+            `;
+    }
+
+
+    }
+
+
+</script>

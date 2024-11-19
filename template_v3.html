@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Отчет-выгрузка с площадки Plati Market : Продавец {sellers_name}</title>
+
+<style>
+    thead {
+
+    	background-color: honeydew;
+
+    }
+
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+	h2, h3 {
+		font-family: Helvetica, sans-serif;
+	}
+
+    .loader {
+        border: 4px solid #f3f3f3; /* Light grey */
+        border-top: 4px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Loader CSS START */
+
+    .loader-display-flex {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    .loader-display-none {
+        display: none;
+    }
+
+    .loader-text {
+        margin-top: 7px;
+        margin-left: 5px;
+    }
+
+    /* Loader CSS END*/
+
+    /* Search Area START */
+
+    #searchInput {
+        padding: 5px;
+        outline: none;
+        width: 260px;
+    }
+
+    #search_btn {
+        padding: 5px;
+        margin-left: 5px;
+    }
+
+    #reset_btn {
+        padding: 5px;
+        margin-left: 5px;
+    }
+
+    /* Search Area END */
+
+
+    /* No Found Products START */
+
+    .no-data-display {
+        display: block;
+    }
+
+    .no-data-display-none {
+        display: none;
+    }
+
+    /* No Found Products END */
+
+    /* Указываем минимальный размер таблицы, чтобы она соответствовала размеру текста об отсутствии товаров в поиске */
+    table {
+        min-width: 420px;
+    }
+
+	/* По какой-то причине в новые отчеты добавляется отступ. Данные строчки кода призваны исправить это  */
+    * {
+        margin-top: 4px;
+    }
+
+    /* Обработка стилей пагинации */
+    
+    /* Pagination START */
+
+    .pagination-page {
+        margin: 2.5px;
+        padding: 7.5px;
+        min-width: 40px;
+        cursor: pointer;
+    }
+
+    .paginationSelectBox {
+        margin-bottom: 10px;
+    }
+
+    /* Pagination END */
+
+</style>
+
+</head>
+<body>
+<h2>{report_title}</h2>
+
+<h3>{sellers_name}</h3>
+
+<h3>{all_products_count}</h3>
+
+<h3>{report_products_count}</h3>
+
+<h3>{products_prices_range}</h3>
+
+<h3>{report_date}</h3>
+
+<h3>{report_start_time}</h3>
+
+<h3>{report_end_time}</h3>
+
+
+<!-- Блок использования пагинации -->
+<div class="paginationSelectBox"><input
+        type="checkbox"
+        name="usePaginationCheckbox"
+        id="usePaginationCheckbox"
+        value="usePagination">
+     <label for="usePaginationCheckbox">Использовать пагинацию</label>
+</div>
+
+<!-- Спиннер, появляющийся при включение/отключение пагинации -->
+<div id="paginationSpinner" class="loader-display-none"><div class="loader"></div><div class="loader-text">Подождите, пожалуйста...</div></div>
+
+<!-- Конец Блока использования пагинации -->
+
+<!-- Блок поиска -->
+
+<input type="text" id="searchInput" placeholder="Поиск по названию..."/><button id="search_btn">Выполнить поиск</button><button id="reset_btn">Сбросить поиск</button>
+
+<br><br/>
+
+<!-- Конец Блока поиска -->
+
+
+<!-- Блок спиннера -->
+
+<div id="spinner" class="loader-display-none"><div class="loader"></div><div class="loader-text">Подождите, пожалуйста...</div></div>
+
+<!-- Конец Блока спиннера -->
+
+<table border="1">
+	<thead>
+		<tr style="text-align: center; vertical-align: middle;">
+        	{headers}
+        </tr>
+	</thead>
+
+	<tbody style="text-align: center; vertical-align: middle;">
+		<tr>
+            {content}
+        </tr>
+	</tbody>
+</table>
+
+<!-- Запись, появляющаяся при отсутствии результатов поиска -->
+<h2 id="noDataLabel" class="no-data-display-none">Ни одной записи не было найдено</h2>
+
+<br><br/>
+
+<!-- Блок, внутри которого формируется пагинация -->
+<div id="paginationWrapper">
+
+</div>
+
+<h3>{CreatedByIgorVeshkin}</h3>
+
+<!-- Скрипт, обрабатывающий и реализующий логику поиска -->
+
+<script type="text/javascript">
+
+    // Ссылка на кнопку поиска
+    var search_btn = document.getElementById('search_btn');
+
+    // Ссылка на таблицу
+    var myTable = document.getElementsByTagName("table")[0];
+
+    // Создаем массив всех данных таблицы из HTMLCollection
+    // Получиться массив HTMLTableRowElement элементов, с которыми можно взаимодействовать с помощью cells
+    var tableData = Array.from(myTable.rows);
+
+    // Убераем заголовок и пустой tr объект из массива
+    // Заменил -1 на tableData.length, поскольку последный элемент пропадал из выборки
+    var tableDataFull =  tableData.slice(2, tableData.length); // tableData.slice(2, tableData.at(-1));
+
+    // Получаем tbody таблицы
+    var tbody = myTable.children[1];
+
+    // Переменная, хранящая поле ввода названия для поиска
+    var searchInput = document.getElementById('searchInput');
+
+    // Переменная, хранящая данные нужен ли ресет поиска
+    var needReset = false;
+
+    // Ссылка на spinner
+    var spinner = document.getElementById('spinner');
+
+    // Ссылка на текст с информацией об отсутствии записей
+    var noDataLabel = document.getElementById('noDataLabel');
+
+    // https://www.geeksforgeeks.org/how-to-wait-n-seconds-in-javascript/?ysclid=m1w7n57v2h997770764
+
+    // Переменная ожидания
+    function wait(seconds) {
+        return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+    }
+
+    search_btn.addEventListener('click', async () => {
+
+        // alert('Базовая проверка, что нажатие по кнопке проходит!');
+
+        // Получаем данные поиска
+        searchValue = searchInput.value.toLowerCase();
+
+        // Проверка введены ли данные для поиска
+        if(!searchValue) {
+            alert("Внимание: Поиск не может быть выполнен! Введите данные для поиска!");
+            return;
+        }
+
+        // Скрываем текст об отсутствие товаров в отчете
+        noDataLabel.classList.add('no-data-display-none');
+        noDataLabel.classList.remove('no-data-display');
+
+        // Отображаем спинер, чтобы не создавалось ощющение задерки в работе программы
+        spinner.classList.add('loader-display-flex');
+        spinner.classList.remove('loader-display-none');
+
+        // Ожидаем пол-секунды
+        await wait(0.5);
+
+        // Удаляем все данные из таблицы
+        tbody.innerHTML = '';
+
+        needReset = true;
+
+        // Очищаем блок хранения пагинации при поиске
+        // paginationWrapper.innerHTML = '';
+
+        // Проверка: если пагинация при поиске не была включена, то....
+        if(usePaginationCheckbox.checked) {
+           // Указываем, что пагинация инициирована программно
+           isPaginationCheckboxChangedByJavaScript = true;
+
+           // Отключаем пагинацию
+           usePaginationCheckbox.click();
+
+           // Ожидаем пол-секунды
+           // await wait(0.5);
+
+           }
+
+        // Запускаем цикл, перебирая все строки таблицы
+        tableDataFull.map((record) => {
+
+            // Получаем название товара. Переводим текст в нижний регистр
+            var recordName = record.cells[0].innerHTML.toLowerCase();
+
+            // Если строка из поиска встречается в название товара в таблице, то
+            if(recordName.includes(searchValue)) {
+
+                // Товар добавляется в таблицу поиска
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${record.cells[0].innerHTML}</td>
+                        <td>${record.cells[1].innerHTML}</td>
+                        <td>${record.cells[2].innerHTML}</td>
+                    </tr>
+                `;
+            }
+        });
+
+        // Скрываем спинер, поскольку данные прогрузились
+        spinner.classList.add('loader-display-none');
+        spinner.classList.remove('loader-display-flex');
+
+        // Если не найдено ни одного товара, то...
+        if(!tbody.innerHTML) {
+
+            // alert('Нет данных о данном товаре');
+
+            // Отображаем текст об отсутствие товаров в отчете
+            noDataLabel.classList.add('no-data-display');
+            noDataLabel.classList.remove('no-data-display-none');
+
+        }
+
+        // Получение содержимого тега tbody таблицы
+        // alert(myTable.children[1].innerHTML);
+
+        // Удаление тега tbody (Внимание удаляется весь тег полностью)
+        // myTable.children[1].remove();
+
+        // Удаление только содержимого tbody
+        // myTable.children[1].innerHTML = '';
+
+        // Взаимодействие с определенной ячейкой ряда. Получаем его значение
+        // alert(tableData[10].cells[0].innerHTML);
+
+        // Добавление новой записи в tbody таблицу
+        // Будет выполняться в цикле
+        /*
+        tbody.innerHTML += `
+            <tr>
+                <td>${tableData[10].cells[0].innerHTML}</td>
+                <td>${tableData[10].cells[1].innerHTML}</td>
+                <td>${tableData[10].cells[2].innerHTML}</td>
+            </tr>
+        `;
+        */
+
+    });
+
+
+    // Ссылка на кнопку сброса поиска
+    var reset_btn = document.getElementById('reset_btn');
+
+    // Если кнопка сброса нажата
+    reset_btn.addEventListener('click', async () => {
+
+        // И если до этого момента поиск был выполнен, то...
+        if(needReset) {
+
+            // Отображаем спинер, чтобы не создавалось ощющение задерки в работе программы
+            spinner.classList.add('loader-display-flex');
+            spinner.classList.remove('loader-display-none');
+
+            // Ожидаем пол-секунды
+            await wait(0.5);
+
+            // Очищаем таблицу, чтобы результат поиска был удален из таблицы
+            tbody.innerHTML = '';
+
+            // Запускаем цикл, перебирая все сохраненные данные таблицы в отдельной переменной
+            tableDataFull.map((record) => {
+
+                // Добавляем данные в таблицу
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${record.cells[0].innerHTML}</td>
+                        <td>${record.cells[1].innerHTML}</td>
+                        <td>${record.cells[2].innerHTML}</td>
+                    </tr>
+                `;
+
+            });
+
+            needReset = false;
+
+            searchInput.value = '';
+
+            // Скрываем спинер, поскольку данные прогрузились
+            spinner.classList.add('loader-display-none');
+            spinner.classList.remove('loader-display-flex');
+
+            // Скрываем текст об отсутствие товаров в отчете
+            noDataLabel.classList.add('no-data-display-none');
+            noDataLabel.classList.remove('no-data-display');
+
+        } else {
+
+            alert('Внимание: Сброс поиска не может быть произведен, поскольку на данный момент отображаются исходные данные!');
+
+        }
+
+
+    });
+
+
+
+</script>
+
+<!-- Скрипт обработки пагинации (Код из этого блока встречается в предыдущем блоке для отключения пагинации) -->
+
+<script type="text/javascript">
+
+    // Объект выбора пагенации
+    var usePaginationCheckbox = document.getElementById('usePaginationCheckbox');
+
+    // Проверка состояния checkbox-а пагинации
+    // alert(usePaginationCheckbox.checked);
+
+    // При выполнении поиска товара пагинация будет сбрасываться, поэтому должно быть внесена проверка
+    // Чтобы различать ручной сброс пагинации от той, что выполняется в коде с помощью JavaScript
+    var isPaginationCheckboxChangedByJavaScript = false;
+
+    // Объект, внутри которого будет храниться пагинация
+    var paginationWrapper = document.getElementById('paginationWrapper');
+
+    // Создаем массив кнопок пагинации, чтобы при нажатии на них не возникало ошибки
+    var paginationButtons = null;
+
+    // При использовании анонимной функции () => {}, this.checked возвращает undefined
+
+    usePaginationCheckbox.addEventListener('change', async function() {
+        if(this.checked) {
+            // alert('Пагинация включена!');
+
+            // Если необходимо переходить в режим пагенации прямо из режима поиска,
+            // то можно закоментировать эту проверку
+            // Но тогда придется раскоментировать needReset = false; и noDataLabel
+
+            if(needReset) {
+                alert('Внимание: Чтобы включить пагинацию, сбросьте поиск');
+                this.checked = false;
+                return;
+            }
+
+            // Отображаем спинер пагенации, чтобы не создавалось ощющение задерки в работе программы
+            paginationSpinner.classList.add('loader-display-flex');
+            paginationSpinner.classList.remove('loader-display-none');
+
+            // Ожидаем пол-секунды
+            await wait(0.5);
+
+            createPagination();
+
+            // Заполняем пагинацию при ее включении
+            paginationButtons = Array.from(paginationWrapper.children);
+
+            // needReset = false;
+
+            searchInput.value = '';
+
+            // Скрываем спинер пагенации, поскольку данные прогрузились
+            paginationSpinner.classList.add('loader-display-none');
+            paginationSpinner.classList.remove('loader-display-flex');
+
+
+            // Скрываем текст об отсутствие товаров в отчете
+            // noDataLabel.classList.add('no-data-display-none');
+            // noDataLabel.classList.remove('no-data-display');
+
+
+        } else {
+            // alert('Пагинация выключена!');
+
+            // Очищаем блок хранения пагинации
+            paginationWrapper.innerHTML = '';
+
+            // alert('isPaginationCheckboxChangedByJavaScript ' + isPaginationCheckboxChangedByJavaScript);
+
+            // Если сброс пагинации не программный (пользователь сам отключил пагинацию), то...
+            if(!isPaginationCheckboxChangedByJavaScript) {
+
+                // Отображаем спинер пагенации, чтобы не создавалось ощющение задерки в работе программы
+                paginationSpinner.classList.add('loader-display-flex');
+                paginationSpinner.classList.remove('loader-display-none');
+
+                // Ожидаем пол-секунды
+                await wait(0.5);
+
+
+                // Очищаем таблицу, чтобы результат был удален из таблицы
+                tbody.innerHTML = '';
+
+                // Запускаем цикл, перебирая все сохраненные данные таблицы в отдельной переменной
+                tableDataFull.map((record) => {
+
+                    // Добавляем данные в таблицу
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${record.cells[0].innerHTML}</td>
+                            <td>${record.cells[1].innerHTML}</td>
+                            <td>${record.cells[2].innerHTML}</td>
+                        </tr>
+                    `;
+
+                });
+
+                needReset = false;
+
+                searchInput.value = '';
+
+                // Скрываем спинер пагенации, поскольку данные прогрузились
+                paginationSpinner.classList.add('loader-display-none');
+                paginationSpinner.classList.remove('loader-display-flex');
+
+                // Не всегда срабатывает, поэтому продублировано за пределом проверки
+                isPaginationCheckboxChangedByJavaScript = false;
+
+            }
+
+            // Продублировано с целью избежания ошибки
+            // Если в режиме пагинации выполнить поиск, сбросить поиск, а затем включить пагенацию снова и выключить,
+            // то пагинация исчезнет, а данные к исходным не вернуться
+            isPaginationCheckboxChangedByJavaScript = false;
+
+        }
+
+    });
+
+
+    // Если при открытии страницы пагинация используется, то отрисовываем соответствующие элементы
+    if(usePaginationCheckbox.checked) {
+
+        createPagination();
+
+    // Окончание проверки if usePaginationCheckbox
+    }
+
+
+    // Функция создания пагинации
+    const createPagination = () => {
+
+        // Текущая страница пагинации
+        var currentPage = 1;
+
+        // Ссылка на таблицу (можно использовать myTable из предыдущего блока script)
+        // var myTableLink = document.getElementsByTagName("table")[0];
+
+        // Создаем массив всех данных таблицы из HTMLCollection
+        // Получиться массив HTMLTableRowElement элементов, с которыми можно взаимодействовать с помощью cells
+
+        // Переменная myTable была объявлена в блоке script выше
+
+        // var tableDataArray = Array.from(myTable.rows);
+
+        // Получаем общее количество записей
+        //var recordsNumber = tableDataArray.slice(2, -1).length + 1; // tableData.slice(2, tableData.at(-1));
+
+        // Используем массив данных из предыдущего блока script
+        var recordsNumber = tableDataFull.length;
+
+        // Индекс последней страницы
+        var lastPageNumber = Math.ceil(recordsNumber / 10);
+
+        // Создаем пагинацию при старте страницы
+        for(let i=1; i <= lastPageNumber; i++) {
+            if(i == currentPage) {
+                paginationWrapper.innerHTML += `<button
+                disabled='true'
+                class='pagination-page selected-page'
+                onclick="changePagination(${i});"
+                >${i}</button>`;
+                continue;
+            }
+
+            paginationWrapper.innerHTML += `<button
+                class='pagination-page'
+
+                onclick="changePagination(${i});">${i}</button>`;
+
+        }
+
+        // Выполняется при запуске страницы
+        // tbody был объявлен в предыдующем блоке script
+        // Удаляем все данные в таблице
+        tbody.innerHTML = '';
+
+        // Отображаем только первые 10 товаров на странице
+        for (let i=0; i<10; i++) {
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>${tableDataFull[i].cells[0].innerHTML}</td>
+                    <td>${tableDataFull[i].cells[1].innerHTML}</td>
+                    <td>${tableDataFull[i].cells[2].innerHTML}</td>
+                </tr>
+            `;
+        }
+
+        // Получаем все кнопки пагинации на странице в виде [object HTMLCollection]
+        // Переконвертируем в Array
+        // Ссылка на ресурс: https://stackoverflow.com/questions/222841/most-efficient-way-to-convert-an-htmlcollection-to-an-array
+        var paginationButtons = Array.from(paginationWrapper.children);
+
+        // Получаем массив, состоящий из [object HTMLButtonElement]
+        // alert(paginationButtons);
+
+    }
+
+
+    const changePagination = (pageIndex) => {
+        // По какой - то причине индекс выдает на единицу больше. По этой причине берем на 1 меньше
+
+        // alert(paginationButtons[pageIndex].innerHTML);
+
+        // Все ранее неактивные кнопки становятся снова активными
+        paginationButtons.map((button) => {
+            if(button.disabled) {
+                button.disabled = false;
+            }
+        });
+
+        // Текущая выбранная кнопка перестает быть активной.
+        // Индекс выдает на единицу больше, поскольку отчет нумерации в JavaScript с нуля, а не с единицы
+        paginationButtons[pageIndex-1].disabled = true;
+
+        // Удаляем все данные в таблице
+        tbody.innerHTML = '';
+
+        fistTableElementIndex = 10*((pageIndex) - 1) + 1;
+        lastTableElementIndex = 10*(pageIndex);
+
+        // Отображаем элементы соответсвующие нужной странице пагинации
+        for (let i=fistTableElementIndex-1; i<lastTableElementIndex; i++) {
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>${tableDataFull[i].cells[0].innerHTML}</td>
+                    <td>${tableDataFull[i].cells[1].innerHTML}</td>
+                    <td>${tableDataFull[i].cells[2].innerHTML}</td>
+                </tr>
+            `;
+    }
+
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

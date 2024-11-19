@@ -1,0 +1,56 @@
+<style>
+    thead {
+
+    	background-color: honeydew;
+
+    }
+
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+	h2, h3 {
+		font-family: Helvetica, sans-serif;
+	}
+
+</style>
+
+<h2>{report_title}</h2>
+
+<h3>{sellers_name}</h3>
+
+<h3>{all_products_count}</h3>
+
+<h3>{report_products_count}</h3>
+
+<h3>{products_prices_range}</h3>
+
+<h3>{report_date}</h3>
+
+<h3>{report_start_time}</h3>
+
+<h3>{report_end_time}</h3>
+
+
+<table border="1">
+	<thead>
+		<tr style="text-align: center; vertical-align: middle;">
+        	{headers}
+        </tr>
+	</thead>
+
+	<tbody style="text-align: center; vertical-align: middle;">
+		<tr>
+            {content}
+        </tr>
+	</tbody>
+</table>
+
+<h3>{CreatedByIgorVeshkin}</h3>
