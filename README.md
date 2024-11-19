@@ -4,6 +4,8 @@
 > 
 > App creates report in form of html-document which has data about product selling by specific merchant
 > 
+> App created using beautifulSoup4 and Selenium4
+> 
 > App has 3 version (py-files):
 > 
 > `parser.py` is original version of app that created html-document without widgets to manipulate content in report
@@ -34,6 +36,8 @@
 > ### Описание проекта: Проект создан для парсинга (сбора) доступных, на текущий момент, товаров на сайте PlatiMarket. Сбор данных о товарах производиться в определенном денежном диапазоне (все цены указаны в российских рублях).
 > 
 > Приложение создает отчет в виде html-документа, который содержит данные о продаже товара конкретным продавцом
+> 
+> Приложение создано с использованием BeautifulSoup4 и Selenium4
 > 
 > Приложение имеет 3 версии (py-файлы):
 > 
