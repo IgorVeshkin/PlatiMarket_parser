@@ -4,7 +4,7 @@
 > 
 > App creates report in form of html-document which has data about product selling by specific merchant
 > 
-> App created using beautifulSoup4 and Selenium4
+> App created using BeautifulSoup4 and Selenium4
 > 
 > App has 3 version (py-files):
 > 
